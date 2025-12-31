@@ -1,0 +1,18 @@
+# Bank Statement Converter - Complete Requirements
+
+# Core dependencies
+python>=3.8
+numpy>=1.24.0
+
+# Phase 2: OCR Engines
+google-cloud-documentai>=2.20.0
+pillow>=10.0.0
+
+# Web UI (local experimentation)
+fastapi>=0.110.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+# Future dependencies
+# openpyxl>=3.1.0  # Excel export
+# pandas>=2.0.0  # Data manipulation

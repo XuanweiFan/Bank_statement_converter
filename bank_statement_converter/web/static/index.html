@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bank Statement Converter Lab</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="badge">Bank Statement Converter</div>
+        <h1>Three-Layer OCR Validation Lab</h1>
+        <p class="subtitle">
+          Upload statements, toggle risk-driven validation, and inspect the output
+          artifacts in seconds. Built for rapid experiments.
+        </p>
+        <div class="hero-actions">
+          <button class="ghost" type="button" id="scroll-to-lab">Open the Lab</button>
+        </div>
+      </header>
+
+      <main class="workspace" id="lab">
+        <section class="card upload-card">
+          <h2>Upload & Configure</h2>
+          <form id="upload-form">
+            <div class="dropzone" id="dropzone">
+              <input
+                type="file"
+                id="file-input"
+                name="file"
+                accept=".pdf,.png,.jpg,.jpeg"
+              />
+              <div class="drop-content">
+                <span class="drop-title">Drop a statement</span>
+                <span class="drop-subtitle">PDF, PNG, or JPG</span>
+                <span class="drop-meta" id="file-meta">No file selected</span>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Confidence Threshold</span>
+                <div class="range">
+                  <input
+                    type="range"
+                    id="confidence"
+                    name="confidence_threshold"
+                    min="0.5"
+                    max="0.98"
+                    step="0.01"
+                    value="0.85"
+                  />
+                  <span id="confidence-value">0.85</span>
+                </div>
+              </label>
+            </div>
+
+            <button class="primary" type="submit" id="submit-btn">
+              Run Pipeline
+            </button>
+            <div class="status" id="status"></div>
+          </form>
+        </section>
+
+        <section class="card result-card">
+          <h2>Results</h2>
+          <div class="result empty" id="result">
+            <div class="result-empty">
+              Run an experiment to view the summary and review list.
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="card tips-card">
+        <h3>Experiment Tips</h3>
+        <ul>
+          <li>Configure Document AI in the server code before starting.</li>
+          <li>Use conditional mode to keep costs low while testing rules.</li>
+          <li>Check the generated CSV and JSON report for detailed findings.</li>
+        </ul>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
