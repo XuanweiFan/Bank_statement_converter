@@ -75,18 +75,18 @@
 ```
 bank_statement_converter/
 ├── core/                          # 核心处理引擎
-│   ├── document_ai_client.py      # Document AI 客户端 (~370 行)
-│   └── pipeline.py                # 主处理管道 (~180 行)
+│   ├── document_ai_client.py      # Document AI 客户端 
+│   └── pipeline.py                # 主处理管道 
 ├── models/                        # 数据模型
-│   ├── ocr_result.py              # OCR 结果模型 (~150 行)
-│   └── validation_report.py      # 验证报告模型 (~180 行)
+│   ├── ocr_result.py              # OCR 结果模型 
+│   └── validation_report.py      # 验证报告模型 
 ├── validators/                    # 双层防线验证器
-│   ├── risk_signal_detector.py   # 防线1: 风险检测 (~320 行)
-│   ├── hard_rules_validator.py   # 防线2: 硬规则 (~250 行)
-│   └── error_pattern_db.py       # 防线2: 错误模式库 (~350 行)
+│   ├── risk_signal_detector.py   # 防线1: 风险检测 
+│   ├── hard_rules_validator.py   # 防线2: 硬规则 
+│   └── error_pattern_db.py       # 防线2: 错误模式库 
 ├── utils/                         # 工具类
-│   ├── parsing.py                # 通用解析 (~120 行)
-│   └── report_generator.py       # 报告生成 (~200 行)
+│   ├── parsing.py                # 通用解析 
+│   └── report_generator.py       # 报告生成 
 ├── web/                           # Web UI
 ├── config/                        # 配置文件
 │   └── error_patterns.json       # 错误模式持久化
@@ -197,55 +197,3 @@ Document AI 处理
 - **验证覆盖率**: 
   - 硬规则: 5 类 × 多项检查
   - 错误模式: 7 种常见错误
-
----
-
-## 🎓 设计哲学
-
-> **准确性优先**  
-> "单引擎也要有完整的风险与规则校验。"
-
-**核心原则**:
-1. **风险先行**: 先识别高风险文档，再进入规则校验
-2. **不自动修正**: 只标记问题，避免引入新错误
-3. **强制人工审核**: 所有文档输出 CSV + 风险报告
-4. **持续学习**: 错误模式库闭环积累
-
----
-
-## 📚 下一步建议
-
-### 短期 (立即可用)
-- [ ] 添加单元测试
-- [ ] 准备示例银行账单
-- [ ] 创建 Google Cloud 项目和 Processor
-- [ ] 测试端到端流程
-
-### 中期 (功能增强)
-- [ ] Excel 导出 (openpyxl)
-- [ ] 软规则/统计异常检测
-- [ ] 更多银行模板识别
-- [ ] 性能基准测试
-
-### 长期 (生产化)
-- [ ] Docker 化部署
-- [ ] RESTful API 接口
-- [ ] Web 界面 (人工审核)
-- [ ] Celery 分布式处理
-- [ ] 监控和告警系统
-
----
-
-## 🎉 项目亮点
-
-1. **完整的双层防线**: 从架构设计到代码实现
-2. **生产级质量**: 详细日志、错误处理、类型注解
-3. **高度可配置**: 阈值可调
-4. **闭环学习**: 错误模式持久化 + 反馈更新
-5. **文档完善**: README + 架构设计文档 + 代码注释
-
----
-
-**生成时间**: 2024-12-27  
-**版本**: Phase 2 Complete  
-**作者**: AI Assistant with User Guidance
